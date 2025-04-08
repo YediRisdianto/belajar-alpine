@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learn AlpineJS</title>
+
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- AlpineJS -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- x data dan x text -->
+    <!-- <div x-data="{data:'Hello form x data alpine js'}">
+        <h1 x-text="data"></h1>
+    </div> -->
+
+    <!-- x model -->
+    <!-- <div x-data="{ message: '' }">
+        <input type="text" x-model="message">
+     
+        <span x-text="message"></span>
+    </div> -->
+
+    <!-- with tailwind -->
+    <div class="flex items-center justify-center h-screen">
+        <form x-data="{
+            email:'',
+            password:''
+        }"
+            x-on:submit.prevent="console.log(email,password)"
+        >
+            <div class="flex flex-col mb-3">
+                <label for="email"></label>
+                <input type="email" name="email" id="email" class="rounded border p-2" placeholder="Email Address" x-model="email">
+            </div>
+            <div class="flex flex-col mb-3">
+                <label for="password"></label>
+                <input type="password" name="password" id="password" class="rounded border p-2" placeholder="***" x-model="password">
+            </div>
+            <button class="p-2 rounded border">Login</button>
+        </form>
+    </div>
+
+</body>
+</html>
