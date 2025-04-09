@@ -59,7 +59,7 @@
     <!-- x model end -->
 
     <!-- x-bind -->
-        <div class="flex items-center justify-center h-screen">
+        <!-- <div class="flex items-center justify-center h-screen">
             <form x-data="{
                 email:'',
                 password:'',
@@ -88,8 +88,79 @@
                     Login
                 </button>
             </form>
-        </div>
+        </div> -->
     <!-- x-bind end -->
+
+    <!-- x-for -->
+
+    <div class="flex items-center justify-center h-screen">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                x-data="{
+                    products:[
+                    {
+                        id:1,
+                        name:'Laptop',
+                        color:'Black',
+                        price:150,
+                        isAvailable:true
+                    },
+                    {
+                        id:2,
+                        name:'Phone',
+                        color:'Black',
+                        price:90,
+                        isAvailable:false
+                    },
+                    {
+                        id:3,
+                        name:'Car',
+                        color:'Grey',
+                        price:1500,
+                        isAvailable:true
+                    },
+                    ]
+                }"
+                >
+
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Product name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Color
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Price
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Is Available
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="product in products">
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" x-text="product.name"></th>
+                            <td class="px-6 py-4" x-text="product.color"></td>
+                            <td class="px-6 py-4" x-text="'$'+product.price"></td>
+                            <td class="px-6 py-4">
+                                <template x-if="product.isAvailable">
+                                    <div class="py-1 px-6 rounded-full bg-teal-100 text-teal-700">Available</div>
+                                </template>
+                                <template x-if="!product.isAvailable">
+                                    <div class="py-1 px-6 rounded-full bg-red-100 text-red-700">Out Of Stock</div>
+                                </template>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- x-for end -->
 
 </body>
 </html>
